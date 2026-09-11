@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/v/@higgsfield/cli?style=flat-square)](https://www.npmjs.com/package/@higgsfield/cli)
 [![license](https://img.shields.io/github/license/higgsfield-ai/cli?style=flat-square)](./LICENSE)
 
-Generate images, videos, 3D assets, audio, and finished-video analysis from the terminal using 40+ [Higgsfield AI](https://higgsfield.ai) models — Nano Banana Pro, Nano Banana 2 Lite, Gemini Omni Flash, FLUX.2, Soul V2, Veo 3.1, Kling v3.0, Seedance 2.0, Marketing Studio, Virality Predictor, and more. Train face-faithful Soul characters and produce branded marketing assets without leaving your shell.
+Generate images, videos, 3D assets, audio, and finished-video analysis from the terminal using 40+ [Higgsfield AI](https://higgsfield.ai) models — Nano Banana Pro, Nano Banana 2 Lite, Gemini Omni Flash, FLUX.2, Soul V2, Veo 3.1, Kling v3.0, Seedance 2.5, Marketing Studio, Virality Predictor, and more. Train face-faithful Soul characters and produce branded marketing assets without leaving your shell.
 
 ![Higgsfield CLI demo](./demo.png)
 
@@ -76,10 +76,12 @@ higgsfield generate create nano_banana_2 \
   --wait
 ```
 
-### GPT Image 2
+### GPT Image 2.5
+
+Recommended default for image generation, design, and on-image text.
 
 ```bash
-higgsfield generate create gpt_image_2 \
+higgsfield generate create gpt_image_2_5 \
   --prompt "clean infographic showing global energy mix, flat icons, muted palette" \
   --aspect_ratio 3:4 \
   --quality high --resolution 2k \
@@ -96,13 +98,15 @@ higgsfield generate create kling3_0 \
   --wait
 ```
 
-### Seedance 2.0
+### Seedance 2.5
+
+SOTA default for general video generation.
 
 ```bash
-higgsfield generate create seedance_2_0 \
+higgsfield generate create seedance_2_5 \
   --prompt "drone shot over a mountain valley at sunrise" \
   --aspect_ratio 16:9 --duration 5 \
-  --resolution 4k --mode std --bitrate_mode high --genre noir \
+  --resolution 1080p --mode t2v --bitrate_mode high \
   --wait
 ```
 
@@ -300,6 +304,7 @@ higgsfield generate create text2image_soul_v2 \
 | `kling3_0` | Kling v3.0 |
 | `kling3_0_turbo` | Kling 3.0 Turbo |
 | `kling2_6` | Kling 2.6 Video |
+| `seedance_2_5` | Seedance 2.5 |
 | `seedance_2_0` | Seedance 2.0 |
 | `seedance_2_0_mini` | Seedance 2.0 Mini |
 | `seedance1_5` | Seedance 1.5 Pro |

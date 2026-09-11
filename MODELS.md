@@ -63,12 +63,12 @@ High-fidelity image generation and editing for product photography, graphic desi
 | `--mask` | false | — | media reference object; use with `--is_inpaint true` |
 
 ```bash
-higgsfield generate create gpt_image_2 --prompt "A studio product photo" --aspect_ratio 4:5 --wait
+higgsfield generate create gpt_image_2 --prompt "A studio product photo" --wait
 ```
 
 ### gpt_image_2_5 — GPT Image 2.5
 
-Image generation and reference-guided editing with Flare and Sunburst variants. Supports higher quality tiers for final assets.
+Recommended default for high-fidelity image generation, design, and on-image text. Supports reference-guided editing with Flare and Sunburst variants and higher quality tiers for final assets.
 
 | flag | required | default | values |
 |---|---|---|---|
@@ -81,10 +81,8 @@ Image generation and reference-guided editing with Flare and Sunburst variants. 
 | `--variant` | false | `flare` | `flare`, `sunburst` |
 
 ```bash
-higgsfield generate create gpt_image_2_5 --prompt "A landscape product photo" --aspect_ratio 5:4 --resolution 2k --wait
+higgsfield generate create gpt_image_2_5 --prompt "A landscape product photo" --resolution 2k --wait
 ```
-
-Both GPT models support `4:5` portrait and `5:4` landscape at every resolution. These ratios require backend support; check `higgsfield model get <job_type>` for the formats currently available to your workspace.
 
 ### grok_image — Grok Image
 
