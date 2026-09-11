@@ -270,6 +270,7 @@ higgsfield generate create text2image_soul_v2 \
 | `flux_2` | FLUX.2 |
 | `flux_kontext` | Flux Kontext |
 | `gpt_image_2` | GPT Image 2 |
+| `gpt_image_2_5` | GPT Image 2.5 |
 | `text2image_soul_v2` | Higgsfield Soul V2 |
 | `seedream_v4_5` | Seedream 4.5 |
 | `seedream_v5_lite` | Seedream V5 Lite |

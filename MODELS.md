@@ -49,13 +49,42 @@ Constraints:
 
 ### gpt_image_2 — GPT Image 2
 
+High-fidelity image generation and editing for product photography, graphic design, and on-image text.
+
 | flag | required | default | values |
 |---|---|---|---|
-| `--aspect_ratio` | false | `1:1` | `1:1`, `4:3`, `3:4`, `16:9`, `9:16`, `3:2`, `2:3` |
+| `--aspect_ratio` | false | `1:1` | `auto`, `1:1`, `4:3`, `3:4`, `16:9`, `21:9`, `9:16`, `3:2`, `2:3`, `4:5`, `5:4` |
+| `--background` | false | — | `auto`, `opaque`, `transparent` |
 | `--image-references` (or `--image`) (repeated) | false | — | UUID or path |
 | `--prompt` | true | — | string |
 | `--quality` | false | `high` | `low`, `medium`, `high` |
 | `--resolution` | false | `2k` | `1k`, `2k`, `4k` |
+| `--is_inpaint` | false | `false` | boolean; requires a mask and at least one reference image |
+| `--mask` | false | — | media reference object; use with `--is_inpaint true` |
+
+```bash
+higgsfield generate create gpt_image_2 --prompt "A studio product photo" --aspect_ratio 4:5 --wait
+```
+
+### gpt_image_2_5 — GPT Image 2.5
+
+Image generation and reference-guided editing with Flare and Sunburst variants. Supports higher quality tiers for final assets.
+
+| flag | required | default | values |
+|---|---|---|---|
+| `--aspect_ratio` | false | `1:1` | `auto`, `1:1`, `3:2`, `2:3`, `4:3`, `3:4`, `16:9`, `9:16`, `21:9`, `27:16`, `16:27`, `9:8`, `8:9`, `4:5`, `5:4` |
+| `--background` | false | — | `auto`, `opaque`, `transparent` |
+| `--image-references` (or `--image`) (repeated) | false | — | UUID or path; at most 16 |
+| `--prompt` | true | — | string |
+| `--quality` | false | `low` | `low`, `medium`, `high`, `xhigh`, `max` |
+| `--resolution` | false | `1k` | `1k`, `2k`, `4k` |
+| `--variant` | false | `flare` | `flare`, `sunburst` |
+
+```bash
+higgsfield generate create gpt_image_2_5 --prompt "A landscape product photo" --aspect_ratio 5:4 --resolution 2k --wait
+```
+
+Both GPT models support `4:5` portrait and `5:4` landscape at every resolution. These ratios require backend support; check `higgsfield model get <job_type>` for the formats currently available to your workspace.
 
 ### grok_image — Grok Image
 
