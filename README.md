@@ -130,7 +130,6 @@ Edit a video from a source clip plus an edited sketch frame:
 higgsfield generate workflow draw_to_video \
   --video ./source.mp4 \
   --sketch ./frame.png \
-  --timestamp 3.2 \
   --prompt "make the jacket red" \
   --wait
 ```
@@ -391,7 +390,6 @@ Create workflow jobs through `generate workflow`:
 higgsfield generate workflow draw_to_video \
   --video ./source.mp4 \
   --sketch ./frame.png \
-  --timestamp 3.2 \
   --prompt "make the jacket red" \
   --wait
 
