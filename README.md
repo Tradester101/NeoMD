@@ -273,6 +273,28 @@ Omitting `--style_id` keeps the general style. A selected style can be combined
 with `--soul-id`, but cannot be combined with `--image` / `--image-references`.
 The API must expose `style_id` in `higgsfield model get text2image_soul_v2`.
 
+### Marketing Studio V2 presets
+
+Discover presets with their generation type and workflow name:
+
+```bash
+higgsfield preset list marketing-studio-v2 --type hypermotion
+higgsfield preset list marketing-studio-v2 --query studio --json
+higgsfield workflow get marketing_studio_v2_video
+higgsfield generate workflow marketing_studio_v2_video \
+  --type hypermotion --preset_id <preset_id> --image ./product.png --wait
+```
+
+Each JSON item includes `job_set_type` and `params` with the matching `type`
+and `preset_id` or `mode_id`. Use IDs with the type shown in that item.
+`ugc_v2` selects presets through `--mode_id`; native `ugc` uses `--preset_id`
+and the returned `delivery_specs`. Presets and `style_id` are separate selections.
+
+Image formats use `marketing_studio_2_image`; motion and UGC formats use
+`marketing_studio_v2_video`. `--image` supplies the product reference for the
+selected format. Inspect `workflow get` for additional inputs and separate cost
+parameters. Availability requires the corresponding backend rollout.
+
 ## Models
 
 40+ image, video, 3D, and audio models. Per-model parameters, defaults, and enums: [MODELS.md](./MODELS.md). Live catalog: `higgsfield model list`.
