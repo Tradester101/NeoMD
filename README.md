@@ -263,8 +263,8 @@ higgsfield generate create text2image_soul_v2 \
 List curated styles and use an ID as `--style_id`:
 
 ```bash
-higgsfield preset list soul --query exposure
-higgsfield preset list soul --json
+higgsfield preset list soul-v2 --query exposure
+higgsfield preset list soul-v2 --json
 higgsfield generate create text2image_soul_v2 \
   --prompt "editorial portrait in evening light" --style_id <style_id> --wait
 ```

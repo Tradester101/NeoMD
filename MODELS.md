@@ -322,7 +322,7 @@ Constraints:
 | `--prompt` | true | — | string |
 | `--quality` | false | `2k` | `1.5k`, `2k` |
 | `--soul-id` (or `--custom-reference-id`) | false | — | Soul UUID |
-| `--style_id` | false | general style | Curated UUID from `higgsfield preset list soul` |
+| `--style_id` | false | general style | Curated UUID from `higgsfield preset list soul-v2` |
 
 Constraints:
 
@@ -332,7 +332,7 @@ Constraints:
 Browse curated styles, then pass the selected ID:
 
 ```bash
-higgsfield preset list soul --query exposure
+higgsfield preset list soul-v2 --query exposure
 higgsfield generate create text2image_soul_v2 \
   --prompt "editorial portrait in evening light" \
   --style_id <style_id> --wait
