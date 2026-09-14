@@ -281,6 +281,8 @@ Discover presets with their generation type and workflow name:
 higgsfield preset list marketing-studio-v2 --type hypermotion
 higgsfield preset list marketing-studio-v2 --query studio --json
 higgsfield workflow get marketing_studio_v2_video
+higgsfield generate cost workflow marketing_studio_v2_video \
+  --type hypermotion --preset_id <preset_id>
 higgsfield generate workflow marketing_studio_v2_video \
   --type hypermotion --preset_id <preset_id> --image ./product.png --wait
 ```
@@ -294,6 +296,11 @@ Image formats use `marketing_studio_2_image`; motion and UGC formats use
 `marketing_studio_v2_video`. `--image` supplies the product reference for the
 selected format. Inspect `workflow get` for additional inputs and separate cost
 parameters. Availability requires the corresponding backend rollout.
+
+For `hypermotion`, `mixed_media`, and `saas_motion`, cost estimation with
+`preset_id` reads the selected preset's duration. `2d_motion` defaults to 5 seconds.
+An explicit `--duration` overrides the default; use the same override when
+generating. Missing presets or unavailable preset durations return an error.
 
 ## Models
 
