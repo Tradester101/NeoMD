@@ -259,6 +259,21 @@ higgsfield generate create text2image_soul_v2 \
   --wait
 ```
 
+### Soul 2.0 styles
+
+List curated styles and use an ID as `--style_id`:
+
+```bash
+higgsfield preset list soul --query exposure
+higgsfield preset list soul --json
+higgsfield generate create text2image_soul_v2 \
+  --prompt "editorial portrait in evening light" --style_id <style_id> --wait
+```
+
+Omitting `--style_id` keeps the general style. A selected style can be combined
+with `--soul-id`, but cannot be combined with `--image` / `--image-references`.
+The API must expose `style_id` in `higgsfield model get text2image_soul_v2`.
+
 ## Models
 
 40+ image, video, 3D, and audio models. Per-model parameters, defaults, and enums: [MODELS.md](./MODELS.md). Live catalog: `higgsfield model list`.
@@ -358,7 +373,9 @@ higgsfield generate create text2speech_v2 \
 
 Workflows are higher-level generation flows with their own parameter schemas.
 Use `workflow list` to discover available workflows and `workflow get` to
-inspect the parameters before creating a job.
+inspect the parameters before creating a job. Every listed workflow can be
+submitted through `generate workflow`, including image workflows such as `ms_image`.
+The list comes from the API catalog; the examples below are not exhaustive.
 
 ```bash
 higgsfield workflow list
@@ -403,7 +420,15 @@ higgsfield generate cost workflow draw_to_video --duration 8.2 --resolution 720p
 higgsfield generate cost workflow reframe --duration 7.1 --resolution 1080p
 ```
 
-`voice-change` and `dubbing` do not support cost estimation.
+Cost parameters come from `workflow get <name> --json` (`cost_params`).
+Use those parameters instead of the creation parameters; a workflow with no
+cost schema reports that estimation is unavailable. An empty schema means
+no parameters are required. For example, when `voice_change` exposes a
+`duration` cost parameter:
+
+```bash
+higgsfield generate cost workflow voice_change --duration 8.2
+```
 
 Fetch or wait for workflow jobs with the same job commands used by model
 generations:
