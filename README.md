@@ -659,6 +659,13 @@ npm uninstall -g @higgsfield/cli
 
 **`Session expired` / `Not authenticated`** — tokens are short-lived. Re-run `higgsfield auth login`.
 
+**`Cannot reach token endpoint` after browser authorization** — make sure you
+are running the latest release, then retry `higgsfield auth logout` followed by
+`higgsfield auth login`. If the browser reports that the device was authorized
+but the CLI still fails, report the CLI version, operating system, architecture,
+and the exact error in [issue #79](https://github.com/higgsfield-ai/cli/issues/79).
+Please do not include authorization codes, tokens, or other credentials.
+
 **`Unknown model "<name>"`** — run `higgsfield model list` for the current catalog.
 
 ## Support
